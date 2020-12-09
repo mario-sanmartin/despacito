@@ -4,6 +4,9 @@ const app = express();
 
 const puerto = 3000;
 
+
+app.use(express.static(__dirname + '/public'))
+
 app.get('/',(req,res)=>{
     res.send('Mi respuesta desde Express')
 })
@@ -11,6 +14,8 @@ app.get('/',(req,res)=>{
 app.get('/servicios',(req,res)=>{
     res.send('Estas en la seccion de Servicios')
 })
+
+
 
 app.listen(puerto,()=>{
     console.log('Servidor a su servicio reina',puerto);
