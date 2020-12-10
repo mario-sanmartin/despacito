@@ -17,10 +17,13 @@ app.get('/',(req,res)=>{
     res.render("index",{titulo: "Mi titulo dinamico"})
 })
 
-app.get('/servicios',(req,res)=>{
-    res.render("servicios",{tituloServicios: "Este si he un peazo e titulo"})
+app.get('/info',(req,res)=>{
+    res.render("info",{tituloInfo: "Este si he un peazo e titulo"})
 })
 
+app.get('/poto',(req,res)=>{
+  res.render("poto",{tituloPoto: "Pero que chucha"})
+})
 //Para que se ejecuten todas las rutas configuradas
 app.use((req,res,next) => {
     res.status(404).render("404",{
