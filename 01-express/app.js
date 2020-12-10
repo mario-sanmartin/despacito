@@ -4,20 +4,29 @@ const app = express();
 
 const puerto = 3000;
 
+
+//Motor de plantilla
+app.set("view engine","ejs")
+app.set('views',__dirname + '/views')
+
+
 //Middleware
 app.use(express.static(__dirname + '/public'))
 
 app.get('/',(req,res)=>{
-    res.send('Mi respuesta desde Express')
+    res.render("index",{titulo: "Mi titulo dinamico"})
 })
 
 app.get('/servicios',(req,res)=>{
-    res.send('Estas en la seccion de Servicios')
+    res.render("servicios",{tituloServicios: "Este si he un peazo e titulo"})
 })
 
 //Para que se ejecuten todas las rutas configuradas
 app.use((req,res,next) => {
-    res.status(404).sendFile(__dirname+'/public/404.html')
+    res.status(404).render("404",{
+        titulo: "error 404",
+        descripcion: "Titulo recontra comunista"
+    })
 })
 
 app.listen(puerto,()=>{

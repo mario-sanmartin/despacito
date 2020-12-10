@@ -1,0 +1,6 @@
+Documentacion ejs
+https://ejs.co/
+
+tips: al usar la etiqueta <%= %>
+pasamos datos puros no podriamos incluir html, en cambio al usar <%- %>
+pasamos datos como include
