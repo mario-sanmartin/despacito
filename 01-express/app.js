@@ -2,7 +2,8 @@ const express = require('express');
 
 const app = express();
 
-const puerto = 3000;
+// const puerto = 3000;
+const port = process.env.PORT || 3000;
 
 
 //Motor de plantilla
@@ -22,7 +23,7 @@ app.get('/info',(req,res)=>{
 })
 
 app.get('/poto',(req,res)=>{
-  res.render("poto",{tituloPoto: "Pero que chucha"})
+    res.render("poto",{tituloPoto: "Pero que chucha"})
 })
 //Para que se ejecuten todas las rutas configuradas
 app.use((req,res,next) => {
@@ -32,6 +33,9 @@ app.use((req,res,next) => {
     })
 })
 
-app.listen(puerto,()=>{
-    console.log('Servidor a su servicio reina',puerto);
-})
+///ni idea
+
+
+app.listen(port, () => {
+    console.log(`Our app is running on port ${ port }`);
+});
